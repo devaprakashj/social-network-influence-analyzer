@@ -45,34 +45,18 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
-/* Hide only the top-right toolbar menu, leave header for sidebar button */
-[data-testid="stToolbar"] { display: none !important; }
-header[data-testid="stHeader"] { 
-    background: transparent !important; 
-    color: #00d4aa !important;
-}
-
-/* ── Sidebar Toggle Button Visibility Fix ── */
-button[kind="header"] {
-    background-color: #1e1e3a !important;
-    color: #00d4aa !important;
-    border: 1px solid #00d4aa44 !important;
-    border-radius: 50% !important;
-}
-[data-testid="stSidebarCollapseButton"] { 
-    background: #1e1e3a !important; 
-    color: #00d4aa !important;
-    border: 1px solid #00d4aa33 !important;
-}
+/* Force Sidebar Toggle Visibility */
+[data-testid="stHeader"] { background: #0a0a0f !important; visibility: visible !important; display: flex !important; }
+[data-testid="stHeader"] button { background-color: #00d4aa22 !important; color: #00d4aa !important; border: 1px solid #00d4aa55 !important; }
 
 /* ── Global ── */
 html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif !important; }
 .main { background: #0a0a0f; }
 .block-container {
-    padding-top: 4.5rem !important; /* Increased for toggle room */
+    padding-top: 5rem !important; 
     padding-bottom: 2rem !important;
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
     max-width: 100% !important;
 }
 
