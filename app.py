@@ -23,7 +23,7 @@ from data_fetcher  import fetch_github_network, fetch_reddit_network
 # ─── Page config ─────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title = "Social Network Influence Analyzer",
-    page_icon  = "🕸️",
+    page_icon  = "\U0001F578",
     layout     = "wide",
     initial_sidebar_state = "expanded",
 )
@@ -285,7 +285,7 @@ for k, v in {
 with st.sidebar:
     st.markdown("""
     <div style='text-align:center;padding:10px 0 4px 0;'>
-        <span style='font-size:2.2rem;'>🕸️</span>
+        <span style='font-size:2.2rem;'>\U0001F578</span>
         <div style='color:#00d4aa;font-weight:700;font-size:1rem;'>Network Analyzer</div>
         <div style='color:#555;font-size:.72rem;'>Mini Project #12 · Real-Time Edition</div>
     </div>
@@ -350,7 +350,7 @@ with st.sidebar:
 # ─── Header ──────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class='app-header'>
-    <span class='app-title'>🕸️ Social Network Influence Analyzer</span><br>
+    <span class='app-title'>\U0001F578 Social Network Influence Analyzer</span><br>
     <span style='color:#555;font-size:.82rem;'>
         Real-Time Data · PageRank · Centrality Measures · Community Detection &nbsp;·&nbsp; Mini Project #12
     </span>
