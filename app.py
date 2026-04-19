@@ -56,13 +56,20 @@ html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif !important
     max-width: 100% !important;
 }
 
-/* Hide Streamlit toolbar */
+/* Hide Streamlit toolbar but keep header for sidebar toggle */
 [data-testid="stToolbar"] { display: none !important; }
-header[data-testid="stHeader"] { background: transparent !important; }
 
 /* ── Sidebar ── */
 [data-testid="stSidebar"] { background: #0f0f1a !important; border-right: 1px solid #1e1e3a; }
 [data-testid="stSidebar"] label { color: #aaa !important; }
+[data-testid="stSidebarCollapseButton"] { 
+    background: #1e1e3a !important; 
+    border-radius: 50% !important;
+    border: 1px solid #00d4aa33 !important;
+    top: 20px !important;
+    left: 20px !important;
+}
+[data-testid="stSidebarCollapseButton"] svg { color: #00d4aa !important; }
 
 /* ── Header ── */
 .app-header { padding: 0 0 14px 0; border-bottom: 1px solid #1e1e3a; margin-bottom: 10px; }
