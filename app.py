@@ -33,6 +33,7 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
+/* ── Global ── */
 html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif !important; }
 .main { background: #0a0a0f; }
 .block-container {
@@ -43,28 +44,30 @@ html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif !important
     max-width: 100% !important;
 }
 
-/* Hide Streamlit's top-right deploy/fork toolbar to free up space */
+/* Hide Streamlit toolbar */
 [data-testid="stToolbar"] { display: none !important; }
 header[data-testid="stHeader"] { background: transparent !important; }
 
-
+/* ── Sidebar ── */
 [data-testid="stSidebar"] { background: #0f0f1a !important; border-right: 1px solid #1e1e3a; }
 [data-testid="stSidebar"] label { color: #aaa !important; }
 
-/* Header */
+/* ── Header ── */
 .app-header { padding: 0 0 14px 0; border-bottom: 1px solid #1e1e3a; margin-bottom: 10px; }
 .app-title {
     font-size: 1.9rem; font-weight: 800;
     background: linear-gradient(90deg, #00d4aa, #7c3aed, #ffa502);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
-/* KPI card */
+/* ── KPI card ── */
 .kpi-card {
     background: linear-gradient(135deg, #111128, #0f0f1f);
     border: 1px solid #1e1e3a; border-radius: 14px;
     padding: 16px 18px; position: relative; overflow: hidden;
     transition: border-color .3s, transform .15s;
+    margin-bottom: 8px;
 }
 .kpi-card:hover { border-color: #00d4aa55; transform: translateY(-2px); }
 .kpi-card::before {
@@ -75,32 +78,33 @@ header[data-testid="stHeader"] { background: transparent !important; }
 .kpi-value { color:#fff; font-size:1.5rem; font-weight:700; font-family:'JetBrains Mono'; }
 .kpi-sub   { color:#666; font-size:.76rem; margin-top:2px; }
 
-/* Influencer card */
+/* ── Influencer card ── */
 .inf-card {
     background:#111128; border:1px solid #1e1e3a; border-radius:12px;
-    padding:14px 18px; margin-bottom:8px; display:flex; align-items:center; gap:16px;
+    padding:14px 18px; margin-bottom:8px; display:flex;
+    align-items:center; gap:16px; flex-wrap: wrap;
     transition: border-color .25s;
 }
 .inf-card:hover { border-color:#7c3aed55; }
 .inf-rank { font-size:1.5rem; font-weight:800; font-family:'JetBrains Mono'; min-width:38px; }
-.inf-name { font-weight:600; color:#eee; font-size:.95rem; }
-.inf-meta { color:#666; font-size:.76rem; }
+.inf-name { font-weight:600; color:#eee; font-size:.95rem; word-break:break-word; }
+.inf-meta { color:#666; font-size:.76rem; flex-wrap:wrap; }
 .inf-badge {
     margin-left:auto; background:#1e1e3a; border-radius:20px;
     padding:3px 12px; font-size:.8rem; font-weight:700;
     font-family:'JetBrains Mono'; color:#00d4aa; border:1px solid #00d4aa33;
     white-space:nowrap;
 }
-.score-bar-bg  { background:#1e1e3a; border-radius:6px; height:5px; margin-top:5px; }
+.score-bar-bg  { background:#1e1e3a; border-radius:6px; height:5px; margin-top:5px; width:100%; }
 .score-bar-fill{ height:100%; border-radius:6px;
     background: linear-gradient(90deg,#7c3aed,#00d4aa); }
 
-/* Section header */
+/* ── Section header ── */
 .sh { color:#00d4aa; font-size:.9rem; font-weight:600; text-transform:uppercase;
       letter-spacing:.1em; margin:16px 0 6px 0;
       border-left:3px solid #7c3aed; padding-left:10px; }
 
-/* Live log */
+/* ── Live log ── */
 .live-log {
     background:#060610; border:1px solid #1e1e3a; border-radius:10px;
     padding:14px 16px; font-family:'JetBrains Mono'; font-size:.78rem;
@@ -112,14 +116,11 @@ header[data-testid="stHeader"] { background: transparent !important; }
 .log-done   { color:#ffa502; font-weight:700; }
 .log-error  { color:#ff4757; }
 
-/* Source badge */
-.src-badge {
-    display:inline-block; padding:3px 12px; border-radius:20px;
-    font-size:.78rem; font-weight:700; margin:2px;
-}
-.src-synth { background:#1e1e3a; color:#7c3aed; border:1px solid #7c3aed44; }
-.src-github{ background:#1a2a1a; color:#2ed573; border:1px solid #2ed57344; }
-.src-reddit{ background:#2a1a1a; color:#ff6348; border:1px solid #ff634844; }
+/* ── Source badge ── */
+.src-badge  { display:inline-block; padding:3px 12px; border-radius:20px; font-size:.78rem; font-weight:700; margin:2px; }
+.src-synth  { background:#1e1e3a; color:#7c3aed; border:1px solid #7c3aed44; }
+.src-github { background:#1a2a1a; color:#2ed573; border:1px solid #2ed57344; }
+.src-reddit { background:#2a1a1a; color:#ff6348; border:1px solid #ff634844; }
 
 .stProgress > div > div { background: linear-gradient(90deg, #00d4aa, #7c3aed); }
 
@@ -129,10 +130,7 @@ header[data-testid="stHeader"] { background: transparent !important; }
     padding: 40px 48px; max-width: 860px; margin: 0 auto;
     font-size: .93rem; line-height: 1.85; color: #ccc;
 }
-.rpt-cover {
-    text-align:center; padding: 36px 0 28px 0;
-    border-bottom: 2px solid #1e1e3a; margin-bottom: 28px;
-}
+.rpt-cover { text-align:center; padding: 36px 0 28px 0; border-bottom: 2px solid #1e1e3a; margin-bottom: 28px; }
 .rpt-title {
     font-size: 2rem; font-weight: 800;
     background: linear-gradient(90deg, #00d4aa, #7c3aed);
@@ -142,40 +140,108 @@ header[data-testid="stHeader"] { background: transparent !important; }
 .rpt-sub   { color: #666; font-size: .85rem; margin-top: 4px; }
 .rpt-meta  { margin-top: 20px; display: inline-block; text-align: left;
              background: #111128; border: 1px solid #1e1e3a;
-             border-radius: 10px; padding: 14px 24px; font-size: .82rem; }
-.rpt-meta td { padding: 3px 16px 3px 0; color: #aaa; }
-.rpt-meta td:first-child { color: #555; font-size: .76rem;
-             text-transform: uppercase; letter-spacing:.08em; }
-.rpt-h1 {
-    font-size: 1.25rem; font-weight: 700; color: #fff;
-    border-left: 4px solid #00d4aa; padding-left: 14px;
-    margin: 32px 0 12px 0;
-}
-.rpt-h2 {
-    font-size: 1rem; font-weight: 600; color: #00d4aa;
-    margin: 20px 0 6px 0;
-}
+             border-radius: 10px; padding: 14px 24px; font-size: .82rem;
+             width: 100%; box-sizing: border-box; }
+.rpt-meta td { padding: 4px 12px 4px 0; color: #aaa; word-break: break-word; }
+.rpt-meta td:first-child { color: #555; font-size: .76rem; text-transform: uppercase; letter-spacing:.08em; white-space: nowrap; }
+.rpt-h1 { font-size: 1.25rem; font-weight: 700; color: #fff; border-left: 4px solid #00d4aa; padding-left: 14px; margin: 32px 0 12px 0; }
+.rpt-h2 { font-size: 1rem; font-weight: 600; color: #00d4aa; margin: 20px 0 6px 0; }
 .rpt-formula {
     background: #060610; border: 1px solid #1e1e3a; border-radius: 8px;
     padding: 10px 18px; font-family: 'JetBrains Mono'; font-size: .82rem;
-    color: #7c3aed; margin: 8px 0 12px 0;
+    color: #7c3aed; margin: 8px 0 12px 0; overflow-x: auto; white-space: nowrap;
 }
-.rpt-table { width:100%; border-collapse:collapse; margin:10px 0 18px 0; font-size:.83rem; }
-.rpt-table th { background:#111128; color:#aaa; padding:8px 12px;
-    text-align:left; border-bottom:1px solid #1e1e3a;
-    text-transform:uppercase; font-size:.72rem; letter-spacing:.08em; }
+.rpt-table { width:100%; border-collapse:collapse; margin:10px 0 18px 0; font-size:.83rem; display:block; overflow-x:auto; }
+.rpt-table th { background:#111128; color:#aaa; padding:8px 12px; text-align:left; border-bottom:1px solid #1e1e3a; text-transform:uppercase; font-size:.72rem; letter-spacing:.08em; white-space:nowrap; }
 .rpt-table td { padding:7px 12px; border-bottom:1px solid #0f0f1a; color:#bbb; }
 .rpt-table tr:hover td { background:#111128; }
-.rpt-badge {
-    display:inline-block; padding:2px 10px; border-radius:20px;
-    font-size:.72rem; font-weight:700; background:#1e1e3a;
-    color:#00d4aa; border:1px solid #00d4aa33; margin:2px;
-}
+.rpt-badge { display:inline-block; padding:2px 10px; border-radius:20px; font-size:.72rem; font-weight:700; background:#1e1e3a; color:#00d4aa; border:1px solid #00d4aa33; margin:2px; }
 .rpt-ref { color:#666; font-size:.8rem; margin:4px 0; line-height:1.6; }
 .rpt-ref b { color:#aaa; }
 .rpt-divider { border:none; border-top:1px solid #1e1e3a; margin:24px 0; }
+
+/* ══════════════════════════════════════════
+   MOBILE RESPONSIVE  (≤ 768px)
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+    /* Tighter container padding on mobile */
+    .block-container {
+        padding-top: 2.5rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Smaller title on mobile */
+    .app-title { font-size: 1.3rem !important; }
+    .app-header { padding-bottom: 10px; }
+
+    /* KPI cards stack vertically — use 2-per-row via percentage */
+    .kpi-card {
+        padding: 12px 14px !important;
+        border-radius: 10px !important;
+    }
+    .kpi-value { font-size: 1.2rem !important; }
+    .kpi-label { font-size: .65rem !important; }
+    .kpi-sub   { font-size: .68rem !important; }
+
+    /* Influencer cards — stack rank + info */
+    .inf-card {
+        padding: 10px 12px !important;
+        gap: 10px !important;
+        flex-wrap: wrap !important;
+    }
+    .inf-rank { font-size: 1.2rem !important; min-width: 30px !important; }
+    .inf-name { font-size: .85rem !important; }
+    .inf-meta { font-size: .68rem !important; }
+    .inf-badge {
+        font-size: .72rem !important;
+        padding: 2px 8px !important;
+        margin-left: 0 !important;
+    }
+
+    /* Section headers */
+    .sh { font-size: .78rem !important; }
+
+    /* Live log — shorter on mobile */
+    .live-log {
+        height: 180px !important;
+        font-size: .72rem !important;
+        padding: 10px 12px !important;
+    }
+
+    /* Report page — full width, less padding on mobile */
+    .rpt-page {
+        padding: 20px 16px !important;
+        border-radius: 10px !important;
+        font-size: .85rem !important;
+    }
+    .rpt-title  { font-size: 1.3rem !important; }
+    .rpt-h1     { font-size: 1.05rem !important; }
+    .rpt-h2     { font-size: .9rem !important; }
+    .rpt-formula{ font-size: .75rem !important; padding: 8px 12px !important; }
+    .rpt-meta   { padding: 10px 14px !important; font-size: .76rem !important; }
+    .rpt-table  { font-size: .75rem !important; }
+    .rpt-table th, .rpt-table td { padding: 5px 8px !important; }
+
+    /* Make stProgress bar thicker for touch */
+    .stProgress > div { height: 8px !important; }
+}
+
+/* ══════════════════════════════════════════
+   SMALL MOBILE  (≤ 480px)
+══════════════════════════════════════════ */
+@media (max-width: 480px) {
+    .block-container {
+        padding-left: 0.6rem !important;
+        padding-right: 0.6rem !important;
+    }
+    .app-title { font-size: 1.1rem !important; }
+    .rpt-page  { padding: 14px 10px !important; }
+    .inf-card  { padding: 8px 10px !important; }
+}
 </style>
-""", unsafe_allow_html=True)
+
 
 
 # ─── Session state ─────────────────────────────────────────────────────────
