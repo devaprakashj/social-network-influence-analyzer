@@ -848,27 +848,8 @@ The system implements <b>eight centrality measures</b> — PageRank, Degree, Bet
 </div>
 """
     st.markdown(report_html_p3, unsafe_allow_html=True)
-      </table>
 
-      <hr class='rpt-divider'>
-
-      <!-- REFERENCES -->
-      <div class='rpt-h1'>9. References</div>
-      <p class='rpt-ref'>[1] <b>Brin, S., &amp; Page, L. (1998).</b> The anatomy of a large-scale hypertextual web search engine. <i>Computer Networks, 30</i>(1–7), 107–117.</p>
-      <p class='rpt-ref'>[2] <b>Freeman, L. C. (1977).</b> A set of measures of centrality based on betweenness. <i>Sociometry, 40</i>(1), 35–41.</p>
-      <p class='rpt-ref'>[3] <b>Bonacich, P. (1972).</b> Factoring and weighting approaches to status scores and clique identification. <i>Journal of Mathematical Sociology, 2</i>(1), 113–120.</p>
-      <p class='rpt-ref'>[4] <b>Kleinberg, J. M. (1999).</b> Authoritative sources in a hyperlinked environment. <i>Journal of the ACM, 46</i>(5), 604–632.</p>
-      <p class='rpt-ref'>[5] <b>Blondel, V. D. et al. (2008).</b> Fast unfolding of communities in large networks. <i>Journal of Statistical Mechanics,</i> P10008.</p>
-      <p class='rpt-ref'>[6] <b>Barabási, A. L., &amp; Albert, R. (1999).</b> Emergence of scaling in random networks. <i>Science, 286</i>(5439), 509–512.</p>
-      <p class='rpt-ref'>[7] <b>Kempe, D., Kleinberg, J., &amp; Tardos, É. (2003).</b> Maximizing the spread of influence through a social network. <i>Proc. ACM SIGKDD,</i> 137–146.</p>
-      <p class='rpt-ref'>[8] <b>Watts, D. J., &amp; Strogatz, S. H. (1998).</b> Collective dynamics of 'small-world' networks. <i>Nature, 393,</i> 440–442.</p>
-      <p class='rpt-ref'>[9] <b>Zachary, W. W. (1977).</b> An information flow model for conflict and fission in small groups. <i>Journal of Anthropological Research, 33</i>(4), 452–473.</p>
-      <p class='rpt-ref'>[10] <b>Newman, M. E. J. (2010).</b> <i>Networks: An Introduction.</i> Oxford University Press.</p>
-      <p class='rpt-ref'>[11] NetworkX Documentation (2024). https://networkx.org/documentation/stable/</p>
-      <p class='rpt-ref'>[12] Streamlit Documentation (2024). https://docs.streamlit.io</p>
-
-    </div>
-    """, unsafe_allow_html=True)
+    # Download button for report
 
     # Download button for report
     st.markdown("<br>", unsafe_allow_html=True)
