@@ -45,31 +45,36 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
+/* Hide only the top-right toolbar menu, leave header for sidebar button */
+[data-testid="stToolbar"] { display: none !important; }
+header[data-testid="stHeader"] { 
+    background: transparent !important; 
+    color: #00d4aa !important;
+}
+
+/* ── Sidebar Toggle Button Visibility Fix ── */
+button[kind="header"] {
+    background-color: #1e1e3a !important;
+    color: #00d4aa !important;
+    border: 1px solid #00d4aa44 !important;
+    border-radius: 50% !important;
+}
+[data-testid="stSidebarCollapseButton"] { 
+    background: #1e1e3a !important; 
+    color: #00d4aa !important;
+    border: 1px solid #00d4aa33 !important;
+}
+
 /* ── Global ── */
 html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif !important; }
 .main { background: #0a0a0f; }
 .block-container {
-    padding-top: 3.5rem !important;
+    padding-top: 4.5rem !important; /* Increased for toggle room */
     padding-bottom: 2rem !important;
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
     max-width: 100% !important;
 }
-
-/* Hide Streamlit toolbar but keep header for sidebar toggle */
-[data-testid="stToolbar"] { display: none !important; }
-
-/* ── Sidebar ── */
-[data-testid="stSidebar"] { background: #0f0f1a !important; border-right: 1px solid #1e1e3a; }
-[data-testid="stSidebar"] label { color: #aaa !important; }
-[data-testid="stSidebarCollapseButton"] { 
-    background: #1e1e3a !important; 
-    border-radius: 50% !important;
-    border: 1px solid #00d4aa33 !important;
-    top: 20px !important;
-    left: 20px !important;
-}
-[data-testid="stSidebarCollapseButton"] svg { color: #00d4aa !important; }
 
 /* ── Header ── */
 .app-header { padding: 0 0 14px 0; border-bottom: 1px solid #1e1e3a; margin-bottom: 10px; }
