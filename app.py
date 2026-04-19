@@ -805,14 +805,14 @@ with tab7:
       <div style='margin-top:80px; display:grid; grid-template-columns: 1fr 1fr; gap:50px;'>
         <!-- HOD -->
         <div style='text-align:left;'>
-            <div style='font-size:.8rem; color:#444; margin-bottom:40px;'>SIGNATURE</div>
+            <div style='font-size:0.8rem; color:#444; margin-bottom:40px; border-bottom:1px solid #333; display:inline-block; width:120px;'>SIGNATURE</div>
             <div style='font-weight:700; color:#eee;'>Dr. N. KANAGAVALLI, Ph.D</div>
             <div style='font-size:0.85rem; color:#777;'>HEAD OF THE DEPARTMENT</div>
             <div style='font-size:0.8rem; color:#555;'>Assistant Professor, CSE (AI & ML)<br>Rajalakshmi Institute of Technology,<br>Chennai – 600 124.</div>
         </div>
         <!-- SUPERVISOR -->
         <div style='text-align:right;'>
-            <div style='font-size:.8rem; color:#444; margin-bottom:40px;'>SIGNATURE</div>
+            <div style='font-size:0.8rem; color:#444; margin-bottom:40px; border-bottom:1px solid #333; display:inline-block; width:120px;'>SIGNATURE</div>
             <div style='font-weight:700; color:#eee;'>Mrs. RUBINA BEGAM</div>
             <div style='font-size:0.85rem; color:#777;'>SUPERVISOR</div>
             <div style='font-size:0.8rem; color:#555;'>Assistant Professor, CSE (AI & ML)<br>Rajalakshmi Institute of Technology,<br>Chennai – 600 124.</div>
