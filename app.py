@@ -28,6 +28,18 @@ st.set_page_config(
     initial_sidebar_state = "expanded",
 )
 
+# ─── Logo Helper ─────────────────────────────────────────────────────────────
+import base64
+import os
+
+def get_base64_img(img_path):
+    if os.path.exists(img_path):
+        with open(img_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
+    return ""
+
+LOGO_BASE64 = get_base64_img("Rit-logo.png")
+
 # ─── CSS ─────────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
@@ -116,13 +128,29 @@ header[data-testid="stHeader"] { background: transparent !important; }
 .log-done   { color:#ffa502; font-weight:700; }
 .log-error  { color:#ff4757; }
 
-/* ── Source badge ── */
-.src-badge  { display:inline-block; padding:3px 12px; border-radius:20px; font-size:.78rem; font-weight:700; margin:2px; }
-.src-synth  { background:#1e1e3a; color:#7c3aed; border:1px solid #7c3aed44; }
-.src-github { background:#1a2a1a; color:#2ed573; border:1px solid #2ed57344; }
-.src-reddit { background:#2a1a1a; color:#ff6348; border:1px solid #ff634844; }
+/* ── Footer ── */
+.custom-footer {{
+    background: #0f0f1a;
+    border-top: 1px solid #1e1e3a;
+    padding: 24px 3rem;
+    margin-top: 40px;
+}}
+.footer-grid {{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 32px;
+}}
+.footer-logo img {{ height: 60px; filter: grayscale(1) invert(1) brightness(2); }}
+.footer-center {{ text-align: center; color: #555; font-size: 0.75rem; line-height: 1.6; }}
+.footer-right {{ text-align: right; color: #aaa; font-size: 0.8rem; line-height: 1.6; }}
+.footer-right b {{ color: #00d4aa; }}
 
-.stProgress > div > div { background: linear-gradient(90deg, #00d4aa, #7c3aed); }
+@media (max-width: 768px) {{
+    .footer-grid {{ grid-template-columns: 1fr; text-align: center; gap: 20px; }}
+    .footer-right {{ text-align: center; }}
+    .footer-logo img {{ height: 45px; }}
+}}
 
 /* ── Report styles ── */
 .rpt-page {
@@ -734,24 +762,68 @@ with tab6:
 
 # ── TAB 7: Project Report ───────────────────────────────────────────────────
 with tab7:
-    st.markdown("""
+    st.markdown(f"""
     <div class='rpt-page'>
+      
+      <!-- INSTITUTIONAL COVER -->
+      <div style='text-align:center;'>
+        <img src='data:image/png;base64,{LOGO_BASE64}' style='height:100px; margin-bottom:15px; filter:brightness(1.5);'>
+        <div style='font-size:1rem; font-weight:700; color:#fff;'>MINI PROJECT REPORT</div>
+        <div class='rpt-title' style='font-size:1.8rem; margin-top:15px; margin-bottom:15px;'>SOCIAL NETWORK INFLUENCE ANALYSIS<br>USING PAGERANK & CENTRALITY MEASURES</div>
+        
+        <div style='margin:30px 0;'>
+            <div style='font-size:0.8rem; color:#666; margin-bottom:5px;'>Submitted by</div>
+            <div style='font-size:1.1rem; font-weight:700; color:#00d4aa;'>DEVAPRAKASH J</div>
+            <div style='font-size:0.9rem; font-weight:600; font-family:JetBrains Mono; color:#aaa;'>2117240030025</div>
+        </div>
 
-      <!-- COVER -->
-      <div class='rpt-cover'>
-        <div class='rpt-title'>🕸️ Social Network Influence Analysis</div>
-        <div style='color:#7c3aed;font-weight:600;font-size:1rem;margin-top:6px;'>Mini Project #12</div>
-        <div class='rpt-sub'>Data Analytics &nbsp;|&nbsp; 2025 – 2026</div>
-        <div class='rpt-sub' style='margin-top:14px;'>
-          <table class='rpt-meta'>
-            <tr><td>Subject</td>    <td>Data Analytics / Big Data Analytics</td></tr>
-            <tr><td>Project No.</td><td>12</td></tr>
-            <tr><td>Algorithms</td> <td>PageRank · Betweenness · Eigenvector · Louvain + 5 more</td></tr>
-            <tr><td>Tools</td>      <td>Python 3.12 · NetworkX · Streamlit · Plotly · PyVis</td></tr>
-            <tr><td>Data Sources</td><td>GitHub API · Reddit API · Benchmark Synthetic Graphs</td></tr>
-          </table>
+        <div style='font-size:0.85rem; line-height:1.6; color:#777; margin:40px 0;'>
+           in partial fulfillment for the award of the degree of<br>
+           <b style='color:#eee;'>BACHELOR OF ENGINEERING</b><br>
+           IN<br>
+           <b style='color:#7c3aed;'>CSE (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)</b>
+        </div>
+
+        <div style='border-top: 1px solid #1e1e3a; padding-top:20px; margin-top:40px;'>
+            <div style='font-weight:700; color:#eee;'>RAJALAKSHMI INSTITUTE OF TECHNOLOGY</div>
+            <div style='font-size:0.8rem; color:#666;'>KUTHAMBAKKAM, CHENNAI - 600 124</div>
+            <div style='font-weight:700; color:#aaa; margin-top:10px;'>ANNA UNIVERSITY: CHENNAI 600 025</div>
+            <div style='font-size:0.8rem; color:#444; margin-top:15px;'>JAN / MAY - 2026</div>
         </div>
       </div>
+
+      <div style='page-break-after: always;'></div>
+      <hr class='rpt-divider' style='margin:60px 0;'>
+
+      <!-- BONAFIDE -->
+      <div style='text-align:center;'>
+        <div style='font-weight:700; color:#aaa; text-transform:uppercase; letter-spacing:2px;'>Anna University: Chennai - 600 025</div>
+        <div style='font-size:1.6rem; font-weight:800; color:#fff; border-bottom:2px solid #00d4aa; display:inline-block; padding-bottom:5px; margin:40px 0;'>BONAFIDE CERTIFICATE</div>
+      </div>
+      
+      <p style='text-align:justify; text-indent:50px; margin-top:30px;'>
+        This is to certify that this Mini Project report <b>"Social Network Influence Analysis"</b> is the Bonafide work of  
+        <b style='color:#eee;'>DEVAPRAKASH J (2117240030025)</b>, who carried out the project work under my supervision. 
+      </p>
+
+      <div style='margin-top:80px; display:grid; grid-template-columns: 1fr 1fr; gap:50px;'>
+        <!-- HOD -->
+        <div style='text-align:left;'>
+            <div style='font-size:.8rem; color:#444; margin-bottom:40px;'>SIGNATURE</div>
+            <div style='font-weight:700; color:#eee;'>Dr. N. KANAGAVALLI, Ph.D</div>
+            <div style='font-size:0.85rem; color:#777;'>HEAD OF THE DEPARTMENT</div>
+            <div style='font-size:0.8rem; color:#555;'>Assistant Professor, CSE (AI & ML)<br>Rajalakshmi Institute of Technology,<br>Chennai – 600 124.</div>
+        </div>
+        <!-- SUPERVISOR -->
+        <div style='text-align:right;'>
+            <div style='font-size:.8rem; color:#444; margin-bottom:40px;'>SIGNATURE</div>
+            <div style='font-weight:700; color:#eee;'>Mrs. RUBINA BEGAM</div>
+            <div style='font-size:0.85rem; color:#777;'>SUPERVISOR</div>
+            <div style='font-size:0.8rem; color:#555;'>Assistant Professor, CSE (AI & ML)<br>Rajalakshmi Institute of Technology,<br>Chennai – 600 124.</div>
+        </div>
+      </div>
+
+      <hr class='rpt-divider' style='margin-top:100px;'>
 
       <!-- ABSTRACT -->
       <div class='rpt-h1'>1. Abstract</div>
@@ -759,8 +831,7 @@ with tab7:
         Social media platforms generate massive interaction data every second, creating vast social graphs
         where identifying the most influential users is critical for viral marketing, opinion mining, and
         information diffusion. This project presents a comprehensive <b>Social Network Influence Analysis
-        system</b> that ingests real-world data from the GitHub and Reddit public APIs alongside benchmark
-        synthetic datasets, and identifies the most influential nodes using multiple graph-theoretic algorithms.
+        system</b> developed by <b>Devaprakash J</b> that ingests real-world data from the GitHub and Reddit APIs.
       </p>
       <p>
         The system implements <b>eight centrality measures</b> — PageRank, Degree, Betweenness, Closeness,
@@ -990,10 +1061,23 @@ with tab7:
 
 
 # ─── Footer ───────────────────────────────────────────────────────────────────
-st.markdown("""
-<hr style='border-color:#1e1e3a;margin-top:28px;'>
-<div style='text-align:center;color:#333;font-size:.73rem;padding-bottom:8px;'>
-Social Network Influence Analysis · Mini Project #12 ·
-Algorithms: PageRank · Betweenness · Eigenvector · Closeness · HITS · Katz · Louvain
-</div>""", unsafe_allow_html=True)
+st.markdown(f"""
+<div class='custom-footer'>
+    <div class='footer-grid'>
+        <div class='footer-logo'>
+            <img src='data:image/png;base64,{LOGO_BASE64}'>
+        </div>
+        <div class='footer-center'>
+            <b>RAJALAKSHMI INSTITUTE OF TECHNOLOGY</b><br>
+            Department of Computer Science and Engineering (AI & ML)<br>
+            Anna University Certified Mini Project &nbsp;·&nbsp; 2026
+        </div>
+        <div class='footer-right'>
+            Submitted by<br>
+            <b>DEVAPRAKASH J</b><br>
+            Reg No: 2117240030025
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
