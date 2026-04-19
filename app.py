@@ -269,7 +269,7 @@ header[data-testid="stHeader"] { background: transparent !important; }
     .inf-card  { padding: 8px 10px !important; }
 }
 </style>
-
+""", unsafe_allow_html=True)
 
 
 # ─── Session state ─────────────────────────────────────────────────────────
