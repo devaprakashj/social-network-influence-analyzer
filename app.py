@@ -35,7 +35,13 @@ st.markdown("""
 
 html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif !important; }
 .main { background: #0a0a0f; }
-.block-container { padding-top: 1.4rem; padding-bottom: 2rem; }
+.block-container {
+    padding-top: 1.4rem !important;
+    padding-bottom: 2rem !important;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    max-width: 100% !important;
+}
 
 [data-testid="stSidebar"] { background: #0f0f1a !important; border-right: 1px solid #1e1e3a; }
 [data-testid="stSidebar"] label { color: #aaa !important; }
