@@ -831,173 +831,23 @@ The system implements <b>eight centrality measures</b> — PageRank, Degree, Bet
 </div>
 """
     st.markdown(report_html_p2, unsafe_allow_html=True)
-        <span class='rpt-badge'>Real-Time Streaming</span>
-      </p>
-
-      <hr class='rpt-divider'>
-
-      <!-- INTRODUCTION -->
-      <div class='rpt-h1'>2. Introduction</div>
-      <div class='rpt-h2'>2.1 Background</div>
-      <p>
-        A <b>social network</b> is a structure composed of individuals (nodes) and the relationships between
-        them (edges). With the explosive growth of online platforms — Twitter, GitHub, Reddit, LinkedIn —
-        billions of social connections are formed digitally every day. Analyzing these networks to identify
-        key players has become a fundamental problem in data science.
-      </p>
-      <p>
-        <b>Influence</b> in a social network refers to the ability of a node to affect the behavior or
-        opinions of other nodes. Influential users spread information rapidly, trigger viral campaigns,
-        and shape public opinion.
-      </p>
-      <div class='rpt-h2'>2.2 Problem Statement</div>
-      <p>Given a social network graph <i>G = (V, E)</i>:</p>
-      <div class='rpt-formula'>"Identify the top-k most influential nodes using graph analysis algorithms and rank them using a composite influence metric."</div>
-      <div class='rpt-h2'>2.3 Motivation</div>
-      <p>
-        Traditional follower-count based ranking is inadequate — it ignores <b>structural position</b>.
-        A user with 100 followers who bridges two large communities may have far greater influence than a
-        celebrity with 1 million followers in an isolated cluster.
-        Graph centrality measures capture this structural influence accurately.
-      </p>
-
-      <hr class='rpt-divider'>
-
-      <!-- OBJECTIVES -->
-      <div class='rpt-h1'>3. Objectives</div>
-      <p><b>Primary Objective:</b> Identify the most influential individuals in a social network using graph analysis techniques — applying PageRank and centrality measures.</p>
-      <table class='rpt-table'>
-        <tr><th>#</th><th>Objective</th></tr>
-        <tr><td>1</td><td>Build social network graphs from real API data (GitHub, Reddit) and benchmark datasets</td></tr>
-        <tr><td>2</td><td>Represent networks as graphs using NetworkX</td></tr>
-        <tr><td>3</td><td>Implement and compare 8 centrality algorithms</td></tr>
-        <tr><td>4</td><td>Detect community structure using Louvain modularity optimization</td></tr>
-        <tr><td>5</td><td>Combine metrics into a single weighted composite influence score</td></tr>
-        <tr><td>6</td><td>Display results through an interactive real-time Streamlit dashboard</td></tr>
-        <tr><td>7</td><td>Stream live API data with real-time UI updates</td></tr>
-      </table>
-
-      <hr class='rpt-divider'>
-
-      <!-- LITERATURE REVIEW -->
-      <div class='rpt-h1'>4. Literature Review</div>
-      <div class='rpt-h2'>4.1 PageRank — Brin &amp; Page (1998)</div>
-      <p>Introduced at Stanford as the basis for Google Search. Models a random surfer following links with damping factor d = 0.85:</p>
-      <div class='rpt-formula'>PR(v) = (1−d)/N + d × Σ [ PR(u) / L(u) ]</div>
-      <div class='rpt-h2'>4.2 Betweenness Centrality — Freeman (1977)</div>
-      <p>Fraction of shortest paths passing through a node — identifies bridges and brokers:</p>
-      <div class='rpt-formula'>C_B(v) = Σ σ(s,t|v) / σ(s,t)  &nbsp; for s ≠ v ≠ t</div>
-      <div class='rpt-h2'>4.3 Eigenvector Centrality — Bonacich (1972)</div>
-      <p>A node is important if its neighbors are important — principal eigenvector of the adjacency matrix:</p>
-      <div class='rpt-formula'>x_v = (1/λ_max) × Σ x_u  &nbsp; for u ∈ neighbors(v)</div>
-      <div class='rpt-h2'>4.4 HITS Algorithm — Kleinberg (1999)</div>
-      <p>Assigns Hub score (links to good authorities) and Authority score (linked by good hubs) iteratively.</p>
-      <div class='rpt-h2'>4.5 Louvain Community Detection — Blondel et al. (2008)</div>
-      <p>Optimizes modularity Q in two phases — local modularity maximization, then graph aggregation. Runs in O(n log n).</p>
-      <div class='rpt-formula'>Q = (1/2m) × Σ [ A_ij − k_i × k_j / 2m ] × δ(c_i, c_j)</div>
-      <div class='rpt-h2'>4.6 Scale-Free Networks — Barabási &amp; Albert (1999)</div>
-      <p>Real social networks follow a power-law degree distribution P(k) ~ k<sup>−γ</sup> via preferential attachment, creating natural hubs.</p>
-
-      <hr class='rpt-divider'>
-
-      <!-- METHODOLOGY -->
-      <div class='rpt-h1'>5. Methodology</div>
-      <div class='rpt-h2'>5.1 Centrality Algorithms</div>
-      <table class='rpt-table'>
-        <tr><th>Algorithm</th><th>Type</th><th>What it captures</th><th>Weight</th></tr>
-        <tr><td>PageRank</td><td>Global walk</td><td>Neighbor-quality based importance</td><td>35%</td></tr>
-        <tr><td>Betweenness</td><td>Path-based</td><td>Bridge / broker positions</td><td>25%</td></tr>
-        <tr><td>Eigenvector</td><td>Spectral</td><td>Influential friends amplify score</td><td>25%</td></tr>
-        <tr><td>Degree</td><td>Local</td><td>Direct connection count</td><td>15%</td></tr>
-        <tr><td>Closeness</td><td>Distance</td><td>Speed of information spread</td><td>—</td></tr>
-        <tr><td>HITS Hub</td><td>Iterative</td><td>Links to good authorities</td><td>—</td></tr>
-        <tr><td>HITS Authority</td><td>Iterative</td><td>Linked by good hubs</td><td>—</td></tr>
-        <tr><td>Katz</td><td>Walk-based</td><td>All-path generalisation (α=0.005)</td><td>—</td></tr>
-      </table>
-      <div class='rpt-h2'>5.2 Composite Influence Score</div>
-      <div class='rpt-formula'>Score(v) = 0.35×PR(v) + 0.25×C_B(v) + 0.25×C_E(v) + 0.15×C_D(v)</div>
-      <p>Scores are normalised to [0%, 100%] across all nodes for final ranking.</p>
-      <div class='rpt-h2'>5.3 Real-Time Streaming</div>
-      <p>
-        Data fetchers are implemented as <b>Python generators</b> that <code>yield</code> event dictionaries
-        after every API call. The Streamlit UI listens to this generator and updates KPI counters, the live
-        log box, and the graph in real-time — without waiting for the entire graph to be built.
-      </p>
-
-      <hr class='rpt-divider'>
-
-      <!-- SYSTEM DESIGN -->
-      <div class='rpt-h1'>6. System Design</div>
-      <table class='rpt-table'>
-        <tr><th>Module</th><th>File</th><th>Responsibility</th></tr>
-        <tr><td>Dashboard</td><td>app.py</td><td>Streamlit UI, session state, real-time event loop, all tabs</td></tr>
-        <tr><td>Graph Builder</td><td>graph_builder.py</td><td>Synthetic datasets (Karate Club, BA, Celebrity, Watts-Strogatz)</td></tr>
-        <tr><td>Centrality Engine</td><td>centrality.py</td><td>All 8 centrality algorithms, Louvain, composite scoring</td></tr>
-        <tr><td>Data Fetcher</td><td>data_fetcher.py</td><td>Live GitHub BFS crawler &amp; Reddit co-commenter scraper</td></tr>
-        <tr><td>Visualizer</td><td>visualizer.py</td><td>Plotly charts (bar, radar, heatmap, scatter) + PyVis network</td></tr>
-      </table>
-      <div class='rpt-h2'>6.1 Datasets Used</div>
-      <table class='rpt-table'>
-        <tr><th>Dataset</th><th>Nodes</th><th>Type</th><th>Source</th></tr>
-        <tr><td>Zachary Karate Club</td><td>34</td><td>Undirected</td><td>Real benchmark (Zachary 1977)</td></tr>
-        <tr><td>Barabási–Albert Graph</td><td>150</td><td>Undirected, scale-free</td><td>Synthetic</td></tr>
-        <tr><td>Celebrity Fan Network</td><td>150</td><td>Star + community</td><td>Synthetic</td></tr>
-        <tr><td>Watts-Strogatz Corporate</td><td>80</td><td>Small-world</td><td>Synthetic</td></tr>
-        <tr><td>GitHub Follower Graph</td><td>Variable</td><td>Live BFS from seed user</td><td>GitHub REST API</td></tr>
-        <tr><td>Reddit Co-commenter</td><td>Variable</td><td>Weighted co-comment links</td><td>Reddit JSON API</td></tr>
-      </table>
-
-      <hr class='rpt-divider'>
-
-      <!-- RESULTS -->
-      <div class='rpt-h1'>7. Results &amp; Analysis</div>
-      <div class='rpt-h2'>7.1 Karate Club — Top 5 Influencers</div>
-      <table class='rpt-table'>
-        <tr><th>Rank</th><th>Node</th><th>Degree</th><th>PageRank</th><th>Betweenness</th><th>Composite</th></tr>
-        <tr><td>🥇</td><td>Node 0 (Instructor)</td><td>16</td><td>0.09702</td><td>0.4376</td><td><b>100.0%</b></td></tr>
-        <tr><td>🥈</td><td>Node 33 (President)</td><td>17</td><td>0.10094</td><td>0.3046</td><td>92.9%</td></tr>
-        <tr><td>🥉</td><td>Node 32</td><td>12</td><td>0.07193</td><td>0.1445</td><td>64.4%</td></tr>
-        <tr><td>4</td><td>Node 2</td><td>10</td><td>0.05718</td><td>0.1408</td><td>60.5%</td></tr>
-        <tr><td>5</td><td>Node 31</td><td>4</td><td>0.03619</td><td>0.1382</td><td>50.0%</td></tr>
-      </table>
-      <p>✅ The algorithm correctly identifies the <b>club instructor (Node 0)</b> and <b>club president (Node 33)</b> as top influencers — matching known ground truth from the original study.</p>
-      <div class='rpt-h2'>7.2 Key Findings</div>
-      <ul>
-        <li><b>PageRank + Eigenvector</b> are the best single predictors of influence (r ≈ 0.91 correlation).</li>
-        <li><b>Betweenness Centrality</b> identifies hidden influencers — nodes with moderate degree but critical bridge positions.</li>
-        <li><b>Degree alone is insufficient</b> — Node 33 has higher degree than Node 0, but Node 0 scores higher overall due to betweenness.</li>
-        <li>Real GitHub networks confirmed <b>power-law degree distribution</b>, consistent with the Barabási–Albert model.</li>
-        <li>Louvain correctly identified <b>4 communities</b> in the Karate Club matching known faction splits (modularity Q ≈ 0.37).</li>
-      </ul>
-      <div class='rpt-h2'>7.3 Real-Time API Performance</div>
-      <table class='rpt-table'>
-        <tr><th>Source</th><th>Nodes</th><th>Fetch Time</th><th>Notes</th></tr>
-        <tr><td>GitHub (no token, depth=2)</td><td>~53</td><td>~45 sec</td><td>60 req/hr free limit</td></tr>
-        <tr><td>GitHub (with PAT token)</td><td>150</td><td>~60 sec</td><td>5000 req/hr</td></tr>
-        <tr><td>Reddit (15 posts)</td><td>~120</td><td>~25 sec</td><td>No auth needed</td></tr>
-        <tr><td>Synthetic</td><td>Up to 150</td><td>&lt; 1 sec</td><td>Instant</td></tr>
-      </table>
-
-      <hr class='rpt-divider'>
-
-      <!-- CONCLUSION -->
-      <div class='rpt-h1'>8. Conclusion &amp; Future Work</div>
-      <p>
-        This project successfully implements a complete <b>Social Network Influence Analysis</b> pipeline.
-        Experiments confirm that <b>no single centrality measure captures all aspects of influence</b> —
-        a weighted composite of PageRank, Betweenness, and Eigenvector Centrality provides the most robust
-        ranking across diverse network topologies.
-      </p>
-      <p>Practical applications include viral marketing, epidemiology (super-spreader detection),
-        fake news monitoring, and recommendation systems.</p>
-      <div class='rpt-h2'>Future Enhancements</div>
-      <table class='rpt-table'>
-        <tr><th>Enhancement</th><th>Description</th></tr>
-        <tr><td>Directed Graph Support</td><td>Extend to Twitter/X asymmetric follower graphs</td></tr>
-        <tr><td>GNN / Deep Learning</td><td>Apply GraphSAGE for influence prediction</td></tr>
-        <tr><td>Temporal Analysis</td><td>Track influence score changes over time</td></tr>
-        <tr><td>Influence Maximization</td><td>Greedy / CELF seed-set selection algorithm</td></tr>
-        <tr><td>Gephi Export</td><td>Export GraphML/GEXF for advanced visualization</td></tr>
+    # PART 3: DETAILED REPORT
+    report_html_p3 = r"""
+<div class='rpt-page'>
+<div class='rpt-h1'>2. Introduction</div>
+<p>Analyzing social networks to identify key players has become a fundamental problem in data science. <b>Influence</b> relates to the structural position of a node, allowing for rapid information diffusion.</p>
+<div class='rpt-h1'>3. Objectives</div>
+<ul>
+<li>Implement 8 centrality algorithms.</li>
+<li>Combine metrics into a weighted composite score.</li>
+<li>Detect communities using Louvain algorithm.</li>
+<li>Real-time dashboard visualization.</li>
+</ul>
+<div class='rpt-h1'>7. Results & Analysis</div>
+<p>Algorithms correctly identify key nodes in benchmark datasets (e.g., node 0 and 33 in Karate Club). PageRank and Eigenvector are strong predictors of general influence, while Betweenness identifies broker nodes.</p>
+</div>
+"""
+    st.markdown(report_html_p3, unsafe_allow_html=True)
       </table>
 
       <hr class='rpt-divider'>
