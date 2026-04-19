@@ -810,29 +810,27 @@ This is to certify that this Mini Project report <b>"Social Network Influence An
 """
     st.markdown(report_html, unsafe_allow_html=True)
 
-      <hr class='rpt-divider' style='margin-top:100px;'>
-
-      <!-- ABSTRACT -->
-      <div class='rpt-h1'>1. Abstract</div>
-      <p>
-        Social media platforms generate massive interaction data every second, creating vast social graphs
-        where identifying the most influential users is critical for viral marketing, opinion mining, and
-        information diffusion. This project presents a comprehensive <b>Social Network Influence Analysis
-        system</b> developed by <b>Devaprakash J</b> that ingests real-world data from the GitHub and Reddit APIs.
-      </p>
-      <p>
-        The system implements <b>eight centrality measures</b> — PageRank, Degree, Betweenness, Closeness,
-        Eigenvector, HITS, Katz, and Load Centrality — combined into a <b>weighted composite influence score</b>.
-        Community structure is detected using the <b>Louvain modularity optimization</b> algorithm.
-        Results are presented through an interactive real-time Streamlit dashboard featuring live data
-        streaming, PyVis network visualization, and Plotly charts.
-      </p>
-      <p><b>Keywords:</b>
-        <span class='rpt-badge'>Social Network Analysis</span>
-        <span class='rpt-badge'>PageRank</span>
-        <span class='rpt-badge'>Centrality Measures</span>
-        <span class='rpt-badge'>Louvain</span>
-        <span class='rpt-badge'>Graph Theory</span>
+    # REST OF THE REPORT (PART 2)
+    report_html_p2 = r"""
+<div class='rpt-page'>
+<hr class='rpt-divider' style='margin-top:100px;'>
+<div class='rpt-h1'>1. Abstract</div>
+<p>
+Social media platforms generate massive interaction data every second, creating vast social graphs where identifying the most influential users is critical for viral marketing, opinion mining, and information diffusion. This project presents a comprehensive <b>Social Network Influence Analysis system</b> developed by <b>Devaprakash J</b> that ingests real-world data from the GitHub and Reddit APIs.
+</p>
+<p>
+The system implements <b>eight centrality measures</b> — PageRank, Degree, Betweenness, Closeness, Eigenvector, HITS, Katz, and Load Centrality — combined into a <b>weighted composite influence score</b>. Community structure is detected using the <b>Louvain modularity optimization</b> algorithm.
+</p>
+<p><b>Keywords:</b>
+<span class='rpt-badge'>Social Network Analysis</span>
+<span class='rpt-badge'>PageRank</span>
+<span class='rpt-badge'>Centrality Measures</span>
+<span class='rpt-badge'>Louvain</span>
+<span class='rpt-badge'>Graph Theory</span>
+</p>
+</div>
+"""
+    st.markdown(report_html_p2, unsafe_allow_html=True)
         <span class='rpt-badge'>Real-Time Streaming</span>
       </p>
 
