@@ -759,65 +759,65 @@ with tab6:
 # ── TAB 7: Project Report ───────────────────────────────────────────────────
 with tab7:
     st.markdown(f"""
-    <div class='rpt-page'>
-      
-      <!-- INSTITUTIONAL COVER -->
-      <div style='text-align:center;'>
-        <img src='data:image/png;base64,{LOGO_BASE64}' style='height:100px; margin-bottom:15px; filter:brightness(1.5);'>
-        <div style='font-size:1rem; font-weight:700; color:#fff;'>MINI PROJECT REPORT</div>
-        <div class='rpt-title' style='font-size:1.8rem; margin-top:15px; margin-bottom:15px;'>SOCIAL NETWORK INFLUENCE ANALYSIS<br>USING PAGERANK & CENTRALITY MEASURES</div>
-        
-        <div style='margin:30px 0;'>
-            <div style='font-size:0.8rem; color:#666; margin-bottom:5px;'>Submitted by</div>
-            <div style='font-size:1.1rem; font-weight:700; color:#00d4aa;'>DEVAPRAKASH J</div>
-            <div style='font-size:0.9rem; font-weight:600; font-family:JetBrains Mono; color:#aaa;'>2117240030025</div>
-        </div>
+<div class='rpt-page'>
+  
+  <!-- INSTITUTIONAL COVER -->
+  <div style='text-align:center;'>
+    <img src='data:image/png;base64,{LOGO_BASE64}' style='height:100px; margin-bottom:15px; filter:brightness(1.5);'>
+    <div style='font-size:1rem; font-weight:700; color:#fff;'>MINI PROJECT REPORT</div>
+    <div class='rpt-title' style='font-size:1.8rem; margin-top:15px; margin-bottom:15px;'>SOCIAL NETWORK INFLUENCE ANALYSIS<br>USING PAGERANK & CENTRALITY MEASURES</div>
+    
+    <div style='margin:30px 0;'>
+        <div style='font-size:0.8rem; color:#666; margin-bottom:5px;'>Submitted by</div>
+        <div style='font-size:1.1rem; font-weight:700; color:#00d4aa;'>DEVAPRAKASH J</div>
+        <div style='font-size:0.9rem; font-weight:600; font-family:JetBrains Mono; color:#aaa;'>2117240030025</div>
+    </div>
 
-        <div style='font-size:0.85rem; line-height:1.6; color:#777; margin:40px 0;'>
-           in partial fulfillment for the award of the degree of<br>
-           <b style='color:#eee;'>BACHELOR OF ENGINEERING</b><br>
-           IN<br>
-           <b style='color:#7c3aed;'>CSE (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)</b>
-        </div>
+    <div style='font-size:0.85rem; line-height:1.6; color:#777; margin:40px 0;'>
+       in partial fulfillment for the award of the degree of<br>
+       <b style='color:#eee;'>BACHELOR OF ENGINEERING</b><br>
+       IN<br>
+       <b style='color:#7c3aed;'>CSE (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)</b>
+    </div>
 
-        <div style='border-top: 1px solid #1e1e3a; padding-top:20px; margin-top:40px;'>
-            <div style='font-weight:700; color:#eee;'>RAJALAKSHMI INSTITUTE OF TECHNOLOGY</div>
-            <div style='font-size:0.8rem; color:#666;'>KUTHAMBAKKAM, CHENNAI - 600 124</div>
-            <div style='font-weight:700; color:#aaa; margin-top:10px;'>ANNA UNIVERSITY: CHENNAI 600 025</div>
-            <div style='font-size:0.8rem; color:#444; margin-top:15px;'>JAN / MAY - 2026</div>
-        </div>
-      </div>
+    <div style='border-top: 1px solid #1e1e3a; padding-top:20px; margin-top:40px;'>
+        <div style='font-weight:700; color:#eee;'>RAJALAKSHMI INSTITUTE OF TECHNOLOGY</div>
+        <div style='font-size:0.8rem; color:#666;'>KUTHAMBAKKAM, CHENNAI - 600 124</div>
+        <div style='font-weight:700; color:#aaa; margin-top:10px;'>ANNA UNIVERSITY: CHENNAI 600 025</div>
+        <div style='font-size:0.8rem; color:#444; margin-top:15px;'>JAN / MAY - 2026</div>
+    </div>
+  </div>
 
-      <div style='page-break-after: always;'></div>
-      <hr class='rpt-divider' style='margin:60px 0;'>
+  <div style='page-break-after: always;'></div>
+  <hr class='rpt-divider' style='margin:60px 0;'>
 
-      <!-- BONAFIDE -->
-      <div style='text-align:center;'>
-        <div style='font-weight:700; color:#aaa; text-transform:uppercase; letter-spacing:2px;'>Anna University: Chennai - 600 025</div>
-        <div style='font-size:1.6rem; font-weight:800; color:#fff; border-bottom:2px solid #00d4aa; display:inline-block; padding-bottom:5px; margin:40px 0;'>BONAFIDE CERTIFICATE</div>
-      </div>
-      
-      <p style='text-align:justify; text-indent:50px; margin-top:30px;'>
-        This is to certify that this Mini Project report <b>"Social Network Influence Analysis"</b> is the Bonafide work of  
-        <b style='color:#eee;'>DEVAPRAKASH J (2117240030025)</b>, who carried out the project work under my supervision. 
-      </p>
+  <!-- BONAFIDE -->
+  <div style='text-align:center;'>
+    <div style='font-weight:700; color:#aaa; text-transform:uppercase; letter-spacing:2px;'>Anna University: Chennai - 600 025</div>
+    <div style='font-size:1.6rem; font-weight:800; color:#fff; border-bottom:2px solid #00d4aa; display:inline-block; padding-bottom:5px; margin:40px 0;'>BONAFIDE CERTIFICATE</div>
+  </div>
+  
+  <p style='text-align:justify; text-indent:50px; margin-top:30px;'>
+    This is to certify that this Mini Project report <b>"Social Network Influence Analysis"</b> is the Bonafide work of  
+    <b style='color:#eee;'>DEVAPRAKASH J (2117240030025)</b>, who carried out the project work under my supervision. 
+  </p>
 
-      <div style='margin-top:80px; display:grid; grid-template-columns: 1fr 1fr; gap:50px;'>
-        <!-- HOD -->
-        <div style='text-align:left;'>
-            <div style='font-size:0.8rem; color:#444; margin-bottom:40px; border-bottom:1px solid #333; display:inline-block; width:120px;'>SIGNATURE</div>
-            <div style='font-weight:700; color:#eee;'>Dr. N. KANAGAVALLI, Ph.D</div>
-            <div style='font-size:0.85rem; color:#777;'>HEAD OF THE DEPARTMENT</div>
-            <div style='font-size:0.8rem; color:#555;'>Assistant Professor, CSE (AI & ML)<br>Rajalakshmi Institute of Technology,<br>Chennai – 600 124.</div>
-        </div>
-        <!-- SUPERVISOR -->
-        <div style='text-align:right;'>
-            <div style='font-size:0.8rem; color:#444; margin-bottom:40px; border-bottom:1px solid #333; display:inline-block; width:120px;'>SIGNATURE</div>
-            <div style='font-weight:700; color:#eee;'>Mrs. RUBINA BEGAM</div>
-            <div style='font-size:0.85rem; color:#777;'>SUPERVISOR</div>
-            <div style='font-size:0.8rem; color:#555;'>Assistant Professor, CSE (AI & ML)<br>Rajalakshmi Institute of Technology,<br>Chennai – 600 124.</div>
-        </div>
-      </div>
+  <div style='margin-top:80px; display:grid; grid-template-columns: 1fr 1fr; gap:50px;'>
+    <!-- HOD -->
+    <div style='text-align:left;'>
+        <div style='font-size:0.8rem; color:#444; margin-bottom:40px; border-bottom:1px solid #333; display:inline-block; width:120px;'>SIGNATURE</div>
+        <div style='font-weight:700; color:#eee;'>Dr. N. KANAGAVALLI, Ph.D</div>
+        <div style='font-size:0.85rem; color:#777;'>HEAD OF THE DEPARTMENT</div>
+        <div style='font-size:0.8rem; color:#555;'>Assistant Professor, CSE (AI & ML)<br>Rajalakshmi Institute of Technology,<br>Chennai – 600 124.</div>
+    </div>
+    <!-- SUPERVISOR -->
+    <div style='text-align:right;'>
+        <div style='font-size:0.8rem; color:#444; margin-bottom:40px; border-bottom:1px solid #333; display:inline-block; width:120px;'>SIGNATURE</div>
+        <div style='font-weight:700; color:#eee;'>Mrs. RUBINA BEGAM</div>
+        <div style='font-size:0.85rem; color:#777;'>SUPERVISOR</div>
+        <div style='font-size:0.8rem; color:#555;'>Assistant Professor, CSE (AI & ML)<br>Rajalakshmi Institute of Technology,<br>Chennai – 600 124.</div>
+    </div>
+  </div>
 
       <hr class='rpt-divider' style='margin-top:100px;'>
 
